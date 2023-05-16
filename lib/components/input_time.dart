@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class InputTime extends StatelessWidget {
   final String title;
   final int valor;
+  final void Function()? inc;
+  final void Function()? dec;
 
   const InputTime({
     required this.title,
     required this.valor,
+    this.inc,
+    this.dec,
     super.key,
   });
 
@@ -26,14 +30,14 @@ class InputTime extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: inc,
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(15),
                 backgroundColor: Colors.red,
               ),
               child: const Icon(
-                Icons.arrow_downward,
+                Icons.arrow_upward,
                 color: Colors.white,
               ),
             ),
@@ -44,14 +48,14 @@ class InputTime extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: dec,
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(15),
                 backgroundColor: Colors.red,
               ),
               child: const Icon(
-                Icons.arrow_upward,
+                Icons.arrow_downward,
                 color: Colors.white,
               ),
             ),

@@ -45,44 +45,44 @@ mixin _$PomodoroStore on _PomodoroStore, Store {
       ActionController(name: '_PomodoroStore', context: context);
 
   @override
-  void incrementarTempoTrabalho() {
+  void incTimeWork() {
     final _$actionInfo = _$_PomodoroStoreActionController.startAction(
-        name: '_PomodoroStore.incrementarTempoTrabalho');
+        name: '_PomodoroStore.incTimeWork');
     try {
-      return super.incrementarTempoTrabalho();
+      return super.incTimeWork();
     } finally {
       _$_PomodoroStoreActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void decrementarTempoTrabalho() {
+  void decTimeWork() {
     final _$actionInfo = _$_PomodoroStoreActionController.startAction(
-        name: '_PomodoroStore.decrementarTempoTrabalho');
+        name: '_PomodoroStore.decTimeWork');
     try {
-      return super.decrementarTempoTrabalho();
+      return super.decTimeWork();
     } finally {
       _$_PomodoroStoreActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void incrementarTempoDescanso() {
+  void incTimeRest() {
     final _$actionInfo = _$_PomodoroStoreActionController.startAction(
-        name: '_PomodoroStore.incrementarTempoDescanso');
+        name: '_PomodoroStore.incTimeRest');
     try {
-      return super.incrementarTempoDescanso();
+      return super.incTimeRest();
     } finally {
       _$_PomodoroStoreActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void decrementarTempoDescanso() {
+  void decTimeRest() {
     final _$actionInfo = _$_PomodoroStoreActionController.startAction(
-        name: '_PomodoroStore.decrementarTempoDescanso');
+        name: '_PomodoroStore.decTimeRest');
     try {
-      return super.decrementarTempoDescanso();
+      return super.decTimeRest();
     } finally {
       _$_PomodoroStoreActionController.endAction(_$actionInfo);
     }
