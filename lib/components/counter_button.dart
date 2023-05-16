@@ -4,11 +4,13 @@ class CounterButton extends StatelessWidget {
   const CounterButton({
     required this.text,
     required this.icon,
+    this.click,
     super.key,
   });
 
   final String text;
   final IconData icon;
+  final void Function()? click;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,14 @@ class CounterButton extends StatelessWidget {
           fontSize: 20,
         ),
       ),
-      onPressed: () {},
+      onPressed: click,
       child: Row(
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: Icon(
               icon,
+              size: 30,
             ),
           ),
           Text(text),
