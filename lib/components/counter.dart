@@ -12,13 +12,13 @@ class Counter extends StatelessWidget {
     final store = Provider.of<PomodoroStore>(context);
 
     return Container(
-      color: Colors.red,
+      color: store.working() ? Colors.red : Colors.green,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'Time to Work',
-            style: TextStyle(
+          Text(
+            store.working() ? 'Time to Work' : 'Time to Rest',
+            style: const TextStyle(
               fontSize: 40,
               color: Colors.white,
             ),
