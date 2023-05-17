@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:pomodoro/components/counter_button.dart';
+import 'package:pomodoro/components/CounterButton.dart';
 import 'package:provider/provider.dart';
 import '../store/pomodoro.store.dart';
 
@@ -37,7 +37,7 @@ class Counter extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (store.started == false)
+                  if (!store.started)
                     Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: CounterButton(
@@ -46,7 +46,7 @@ class Counter extends StatelessWidget {
                         click: store.start,
                       ),
                     ),
-                  if (store.started == true)
+                  if (store.started)
                     Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: CounterButton(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../store/pomodoro.store.dart';
 
 class InputTime extends StatelessWidget {

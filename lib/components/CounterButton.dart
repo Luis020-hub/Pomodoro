@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CounterButton extends StatelessWidget {
+  final String text;
+  final IconData icon;
+  final void Function()? click;
+
   const CounterButton({
     required this.text,
     required this.icon,
     this.click,
     super.key,
   });
-
-  final String text;
-  final IconData icon;
-  final void Function()? click;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CounterButton extends StatelessWidget {
           vertical: 20,
         ),
         textStyle: const TextStyle(
-          fontSize: 20,
+          fontSize: 25,
         ),
       ),
       onPressed: click,
@@ -32,7 +32,7 @@ class CounterButton extends StatelessWidget {
             padding: const EdgeInsets.only(right: 10),
             child: Icon(
               icon,
-              size: 30,
+              size: 35,
             ),
           ),
           Text(text),

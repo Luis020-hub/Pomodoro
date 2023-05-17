@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:pomodoro/components/counter.dart';
-import 'package:pomodoro/components/input_time.dart';
+import 'package:pomodoro/components/Counter.dart';
+import 'package:pomodoro/components/InputTime.dart';
 import 'package:provider/provider.dart';
 import '../store/pomodoro.store.dart';
 
@@ -26,15 +26,16 @@ class Pomodoro extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InputTime(
-                      title: 'Work',
-                      valor: store.workTime,
-                      inc: store.incTimeWork,
-                      dec: store.decTimeWork),
+                    title: 'Work',
+                    valor: store.workTime,
+                    inc: store.incWorkTime,
+                    dec: store.decWorkTime,
+                  ),
                   InputTime(
                     title: 'Rest',
                     valor: store.restTime,
-                    inc: store.incTimeRest,
-                    dec: store.decTimeRest,
+                    inc: store.incRestTime,
+                    dec: store.decRestTime,
                   ),
                 ],
               ),

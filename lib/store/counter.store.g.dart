@@ -29,11 +29,11 @@ mixin _$CounterStore on _CounterStore, Store {
       ActionController(name: '_CounterStore', context: context);
 
   @override
-  void incrementar() {
+  void incrementer() {
     final _$actionInfo = _$_CounterStoreActionController.startAction(
-        name: '_CounterStore.incrementar');
+        name: '_CounterStore.incrementer');
     try {
-      return super.incrementar();
+      return super.incrementer();
     } finally {
       _$_CounterStoreActionController.endAction(_$actionInfo);
     }

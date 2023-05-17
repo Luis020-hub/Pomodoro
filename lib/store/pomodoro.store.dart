@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names, library_private_types_in_public_api
-
 import 'dart:async';
 
 import 'package:mobx/mobx.dart';
@@ -8,7 +6,7 @@ part 'pomodoro.store.g.dart';
 
 class PomodoroStore = _PomodoroStore with _$PomodoroStore;
 
-enum BreakType { WORK, REST }
+enum IntervalType { work, rest }
 
 abstract class _PomodoroStore with Store {
   @observable
@@ -27,16 +25,16 @@ abstract class _PomodoroStore with Store {
   int restTime = 1;
 
   @observable
-  BreakType breakType = BreakType.REST;
+  IntervalType intervalType = IntervalType.work;
 
   Timer? counter;
 
   @action
   void start() {
     started = true;
-    counter = Timer.periodic(Duration(seconds: 1), (timer) {
+    counter = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
       if (minutes == 0 && seconds == 0) {
-        _swapeBreakTime();
+        _swapIntervalTime();
       } else if (seconds == 0) {
         seconds = 59;
         minutes--;
@@ -58,39 +56,39 @@ abstract class _PomodoroStore with Store {
   }
 
   @action
-  void incTimeWork() {
+  void incWorkTime() {
     workTime++;
   }
 
   @action
-  void decTimeWork() {
+  void decWorkTime() {
     workTime--;
   }
 
   @action
-  void incTimeRest() {
+  void incRestTime() {
     restTime++;
   }
 
   @action
-  void decTimeRest() {
+  void decRestTime() {
     restTime--;
   }
 
   bool working() {
-    return breakType == BreakType.WORK;
+    return intervalType == IntervalType.work;
   }
 
-  bool resting() {
-    return breakType == BreakType.REST;
+  bool estaDescansando() {
+    return intervalType == IntervalType.rest;
   }
 
-  void _swapeBreakTime() {
+  void _swapIntervalTime() {
     if (working()) {
-      breakType = BreakType.REST;
+      intervalType = IntervalType.rest;
       minutes = restTime;
     } else {
-      breakType = BreakType.WORK;
+      intervalType = IntervalType.work;
       minutes = workTime;
     }
     seconds = 0;
