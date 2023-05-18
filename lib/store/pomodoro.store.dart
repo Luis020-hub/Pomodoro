@@ -67,9 +67,11 @@ abstract class _PomodoroStore with Store {
 
   @action
   void decWorkTime() {
-    workTime--;
-    if (working()) {
-      restart();
+    if (workTime > 1) {
+      workTime--;
+      if (working()) {
+        restart();
+      }
     }
   }
 
@@ -83,9 +85,11 @@ abstract class _PomodoroStore with Store {
 
   @action
   void decRestTime() {
-    restTime--;
-    if (resting()) {
-      restart();
+    if (restTime > 1) {
+      restTime--;
+      if (resting()) {
+        restart();
+      }
     }
   }
 
