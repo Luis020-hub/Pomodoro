@@ -32,7 +32,7 @@ abstract class _PomodoroStore with Store {
   @action
   void start() {
     started = true;
-    counter = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+    counter = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (minutes == 0 && seconds == 0) {
         _swapIntervalTime();
       } else if (seconds == 0) {
@@ -53,33 +53,47 @@ abstract class _PomodoroStore with Store {
   @action
   void restart() {
     stop();
+    minutes = working() ? workTime : restTime;
+    seconds = 0;
   }
 
   @action
   void incWorkTime() {
     workTime++;
+    if (working()) {
+      restart();
+    }
   }
 
   @action
   void decWorkTime() {
     workTime--;
+    if (working()) {
+      restart();
+    }
   }
 
   @action
   void incRestTime() {
     restTime++;
+    if (resting()) {
+      restart();
+    }
   }
 
   @action
   void decRestTime() {
     restTime--;
+    if (resting()) {
+      restart();
+    }
   }
 
   bool working() {
     return intervalType == IntervalType.work;
   }
 
-  bool estaDescansando() {
+  bool resting() {
     return intervalType == IntervalType.rest;
   }
 
